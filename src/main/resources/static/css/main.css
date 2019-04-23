@@ -1,0 +1,99 @@
+html{
+    scroll-behavior: smooth;
+}
+
+.navbar-nav a:hover{
+    text-decoration: underline;
+
+
+}
+
+body{
+  width: 100%;
+  margin: auto;
+}
+
+
+.mainDiv{
+
+    height: 830px;
+    width: 100%;
+    margin: 0;
+}
+
+h1{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+    color: #f8f8ff;
+
+}
+.mainHeading{
+    padding: 100px 50px 10px 50px;
+    font-family: 'Fascinate Inline', cursive;
+    color: ghostwhite;
+}
+
+h2{
+    font-family: 'Indie Flower', cursive;
+    color: #f8f8ff;
+}
+.first, .second, .third{
+   text-align: center;
+   margin: 0 auto;
+   width: 80%;
+   border-radius: 25px;
+   opacity: 0.8;
+   color: #f8f8ff;
+}
+
+button{
+    background-color: #393e46;
+    color: white;
+    margin: 20px;
+    padding: 10px;
+    background-color: #AAABB8;
+    font-size: 18px;
+}
+.col-sm-8{
+    height: 0px;
+}
+.space{
+    padding-top: 8px;
+}
+
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 200px;
+    left: 0;
+    top: 0;
+    width: 40%;
+    height: 40%;
+    overflow: auto;
+    background-color: rgb(0,0,0);
+    background-color: white;
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.close{
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover, .close:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}

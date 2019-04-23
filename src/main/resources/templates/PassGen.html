@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" th:href="@{/css/passGenStyle.css}" />
+
+    <title>Random Password Generator</title>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light static-top fixed-top" style="background-color: #AAABB8;">
+    <a class="navbar-brand" href="#" style="color: white;">PassGen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="collapse navbar-collapse" id="navbarNavDropdown">
+    <span class="navbar-nav">
+      <a class="nav-item nav-link active" th:href="@{/}" style="color: white">Home <span class="sr-only">(current)</span></a>
+
+    </span>
+  </span>
+</nav>
+
+<div class="container">
+    <form action="" name="passGen">
+        <div class="col-xs-12">
+            <input type="text" size="18" name="output" class="out" disabled />
+
+            <input type="button" value="Generate password" class="btn btn-success btn-block mybtn" onclick="populateForm(this.form.length.value)" />
+
+            <div class="col-xs-10"><strong class="pass">Password Length:</strong></div>
+            <div class="col-xs-2"><input class="in" type="text" name="length" size="3" value="6" ></div>
+
+
+        </div>
+    </form>
+
+</div>
+<script src="script.js">
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

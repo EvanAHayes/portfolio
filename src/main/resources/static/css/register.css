@@ -1,0 +1,41 @@
+body{
+background-image: url('../images/mainbarber.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+    color: #32dbc6;
+}
+
+#mainDiv{
+
+    height: 800px;
+    width: 100%;
+    margin: 0;
+}
+.style{
+   text-align: center;
+   margin: 0 auto;
+   width: 80%;
+   border-radius: 25px;
+   opacity: 0.8;
+
+}
+
+h1{
+    padding: 90px 50px 10px 50px;
+     text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+
+h2{
+    text-align: center;
+    font-family: 'Fredoka One', cursive;
+}
+
+button{
+    background-color: #32dbc6;
+   margin-top: 10px;
+  font-size: 1.5em;
+}

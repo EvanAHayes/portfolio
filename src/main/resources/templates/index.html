@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" />
+    <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fascinate+Inline|Indie+Flower"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+    <title>Main</title>
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-light static-top fixed-top" style="background-color: #AAABB8;">
+    <a class="navbar-brand" href="#" style="color: white;">E Hayes</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <span class="collapse navbar-collapse" id="navbarNavDropdown">
+    <span class="navbar-nav">
+      <a class="nav-item nav-link active" href="#" style="color: white">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#aboutme" style="color: white">About Me/skills</a>
+      <a class="nav-item nav-link" href="#project" style="color: white">Projects</a>
+      <a class="nav-item nav-link" href="https://github.com/kingz3" target="_blank" style="color: white"><i class="fab fa-github fa-fw"></i> github</a>
+    </span>
+  </span>
+</nav>
+
+
+<div class="mainDiv" style="background-color: #00204a;">
+    <div class="first">
+        <h1 class="mainHeading">Evan Hayes </h1><br>
+        <h1 class="firstP">Designer, Java Web Developer, Mentor</h1><br>
+        <h2>My mission in life is not merely to survive, but to thrive; and to do so with some passion, some compassion, some humor, and some style. -Maya Angelou</h2>
+        <button id="myBtn">View Projects</button>
+        <div id="myModal" class="modal">
+            <div class="model-content">
+                <span class="close">&times;</span>
+                <p style="color: black">Click on a project </p>
+                <a th:href="@{/barbershop}"><p>Barbershop</p></a>
+                <a href=""><p>Reddit Clone</p></a>
+                <a th:href="@{/PassGen}"><p>Password Generator</p></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="mainDiv" style="background-color: #005792;">
+    <div id="aboutme" class="second" data-parallax="scroll">
+        <!--   <div class="row">-->
+        <h1 class="mainHeading"> About me</h1>
+        <h1 style="font-size: 30px;">Evan is a self-taught developer with a strong background in web development. Specilize in Java programing with spring framework. A believer in positive thinking and teamwork. Evan is use to working with small business and develops with the client in mind to make thins easy and smooth. He enjoys mentoring teens, playing sports. </h1>
+        <div class="row">
+            <h1 class="mainHeading">Skills</h1>
+            <ul>
+                <label>Web Developer</label>
+                <li>Java (back-end, destop applications)</li>
+                <li>Html5</li>
+                <li>Javascript</li>
+                <li>JQuery</li>
+                <li>CSS</li>
+                <li>MySQL/REST</li>
+                <li>Bootstrap</li>
+            </ul>
+            <ul style="margin-left: 80px;">
+                <label>Frame Works</label>
+                <li>Spring</li>
+                <li>Spring-boot</li>
+                <li>Spark</li>
+            </ul>
+            <ul style="margin-left: 200px;">
+                <label>Dev Tools</label>
+                <li>Gradel</li>
+                <li>Maven</li>
+                <li>Git</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="mainDiv" style="background-color: #00bbf0;">
+    <div id="project" class="third" data-parallax="scroll">
+        <h1 class="mainHeading"> Projects</h1>
+        <div class="row">
+            <div class="col">
+                <h5>Schedule a haircut</h5>
+                <br><a th:href="@{/barbershop}"><img src="images/logotype-3745683_1280.png" alt="barbershop" height="195px"></a>
+                <br><h6>This project is a template for barbershops to help their clients schedule an appointment with them. It was created with Java, Thymeleaf, and Spring Framework on the backend and XML, CSS on the front end. MySql for the database.</h6>
+                <a th:href="@{/barbershop}"><button>View Site</button></a><br>
+                <a href="" target="_blank"><button>View Source</button></a>
+            </div>
+            <div class="col">
+                <h5>Create a profile/reddit clone</h5>
+                <br><a href=""><i class="fab fa-reddit-alien" style="font-size: 195px;"></i></a>
+                <br><p>This is a clone of the famous website reddit. It was created with Java, Thymeleaf, and Spring Framework on the backend and XML, CSS on the front end. MySql for the database.</p>
+                <a href=""><button>View Site</button></a><br>
+                <a href="https://github.com/kingz3/springit2" target="_blank"><button>View Source</button></a>
+            </div>
+            <div class="col">
+                <h5>Password Generator</h5>
+                <br><a th:href="@{/PassGen}"><i class="fas fa-bolt" style="font-size: 195px;"></i></a>
+                <br><p class="space">This is a simple program to help generate a password just put the number of characters needed. It was made with Javascript, Html5, CSS </p>
+                <a th:href="@{/PassGen}"><button>View Site</button></a><br>
+                <a href="https://github.com/kingz3/PassGenUsingJS" target="_blank"><button>View Source</button></a>
+            </div>
+            <br><h5 class="top">Other: Check out my github for Java desktop projects. Check out the infamous game Hangman on your command Line. </h5>
+        </div>
+
+    </div>
+</div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script>
+    var model = document.getElementById('myModal');
+    var btn = document.getElementById('myBtn');
+    var span = document.getElementsByClassName('close')[0];
+
+        btn.onclick = function(){
+            model.style.display = "block";
+        }
+
+        span.onclick = function(){
+            model.style.display = "none";
+        }
+
+        window.onclick = function(event){
+            if(event.target == model){
+                model.style.display = "none";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
