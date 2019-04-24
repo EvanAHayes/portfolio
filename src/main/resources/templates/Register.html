@@ -30,10 +30,10 @@
 <h2>Welcome to Mighty Sharp</h2>
 
 <div class="container">
-    <form>
+    <form class="form-horizontal" role="form" method="POST" th:action="@{/register}" th:object="${user}">
         <div id="mainDiv">
             <div class="style">
-
+                <h2>Register New User</h2>
                 <div class="form-row">
                     <div class="col">
                         <input type="text" class="form-control" placeholder="First name"/>
@@ -48,9 +48,18 @@
                         <input type="text" class="form-control" placeholder="Phone number"/>
                     </div>
                     <div class="col">
-                        <input type="Date" class="form-control" placeholder="Date of birth">
+                        <input type="number" class="form-control" placeholder="Age">
                     </div>
                 </div>
+                <div class="form-row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="User Name"/>
+                    </div>
+                    <div class="col">
+                        <input type="number" class="form-control" placeholder="Password">
+                    </div>
+                </div>
+
                 <a th:href="@{/BookAppointment}"><button>submit</button></a>
             </div>
         </div>
