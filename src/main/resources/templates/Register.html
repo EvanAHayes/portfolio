@@ -2,13 +2,13 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" th:href="@{/css/register.css}" />
-    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet"/>
 
-    <title>Minimum Bootstrap HTML Skeleton</title>
+    <title>Sign-In</title>
 
 </head>
 
@@ -26,37 +26,87 @@
   </span>
 </nav>
 
-<h1>Register New User</h1>
-<h2>Welcome to Mighty Sharp</h2>
+
+
+<h1>Welcome to Mighty Sharp</h1>
+<h2>Register New User</h2>
+
+<!--successMessage-->
+<div class="row" th:if="${Success}">
+    <div class="col-md-3"></div>
+    <div class="col-md-6 alert alert-success" role="alert" >
+        You have successfully registered with us. You can now Sign in.
+        <a th:href="@{/SignIn}">Sign in</a>
+    </div>
+    <div class="col-md-3"></div>
+</div>
 
 <div class="container">
-    <form class="form-horizontal" role="form" method="POST" th:action="@{/register}" th:object="${user}">
+    <form class="form-horizontal" role="form" method="POST" th:action="@{/NewUser}" th:object="${user}" th:if="!${Success}">
         <div id="mainDiv">
             <div class="style">
-                <h2>Register New User</h2>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                    </div>
+                </div>
+                <div class="row" th:if="${validationErrors}">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+            <span class="text-danger align-middle">
+                <ul th:each="error : ${validationErrors}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                </ul>
+            </span>
+                    </div>
+                </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="First name"/>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="First name"
+                               name="First-Name"
+                               th:field="*{FirstName}"/>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Last name"/>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Last name"
+                               name="Last-Name"
+                               th:field="*{LastName}"/>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Phone number"/>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Phone number"
+                               name="Phone-Number"
+                               th:field="*{PhoneNUmber}"/>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="Age">
+                        <input type="number"
+                               class="form-control"
+                               placeholder="Age"
+                               name="Age"
+                               th:field="*{age}"/>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="User Name"/>
+                        <input type="text"
+                               class="form-control"
+                               placeholder="User Name"
+                               name="User-name"
+                               th:field="*{Username}"/>
                     </div>
                     <div class="col">
-                        <input type="number" class="form-control" placeholder="Password">
+                        <input type="text"
+                               class="form-control"
+                               placeholder="Password"
+                               name="Password"
+                               th:field="*{Password}"/>
                     </div>
                 </div>
 

@@ -23,7 +23,7 @@ public class User {
     @Size(min = 8, max = 20)
     @Column(nullable = false, unique = true)
     @NotEmpty(message = "Please Enter a username")
-    private String Username;
+    private String username;
 
     @NonNull
     @Column
