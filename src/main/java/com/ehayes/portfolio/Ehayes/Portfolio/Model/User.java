@@ -1,34 +1,36 @@
 package com.ehayes.portfolio.Ehayes.Portfolio.Model;
 
 import lombok.*;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NonNull
-    @Size(min = 8, max = 20)
+    @Size(min = 3, max = 20)
     @Column(nullable = false, unique = true)
     @NotEmpty(message = "Please Enter a username")
     private String username;
 
     @NonNull
-    @Column
+    @Column(name = "password")
     @NotEmpty(message = "Please Enter a Password")
-    private String Password;
+    private String password;
 
     @NonNull
     @Column
@@ -41,15 +43,16 @@ public class User {
     private String LastName;
 
     @NonNull
-    @Column
+    @Column(name = "age")
     @NotEmpty(message = "Enter Your Age")
     private String age;
 
     @NonNull
-    @Column
+    @Column(name = "phonenumber")
     @NotEmpty(message = "Please Enter Your Phone Number")
-    private String PhoneNUmber;
+    private String PhoneNumber;
 
+    //immediatly load roles with fetch type
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
             name = "users_roles",
@@ -57,8 +60,12 @@ public class User {
             inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id")
     )
 
+    private Set<Role> roles = new HashSet<>();
 
-    private Set<Role> roles = new HashSet();
+    public void addRole(Role role){
+        roles.add(role);
+    }
+
 
     @Transient
     @Setter(AccessLevel.NONE)
@@ -69,5 +76,43 @@ public class User {
     }
 
 
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for (Role role : roles) {
+            authorities.add(new SimpleGrantedAuthority(role.getName()));
+        }
+        //return the authorities list
+        return authorities;
+    }
 
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return username;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

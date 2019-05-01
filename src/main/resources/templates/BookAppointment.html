@@ -47,8 +47,8 @@
     </button>
     <span class="collapse navbar-collapse" id="navbarNavDropdown">
     <span class="navbar-nav">
-      <a class="nav-item nav-link active" href="#" style="color: white">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#barbershop" style="color: white">BarberShop</a>
+      <a class="nav-item nav-link active" th:href="@{/}" style="color: white">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" th:href="@{/barbershop}" style="color: white">BarberShop</a>
     </span>
   </span>
 </nav>
@@ -65,9 +65,9 @@
             <div class="col">
                 <div class="myconent-right">
                     <h1 class="mainHeading">Appointment</h1>
-                    <p>Date: <input type="text" id="datepicker" width="100px;" height="200px;"></p>
+                    <p>Date: <input type="text" name="datepicker" id="datepicker" width="100px;" height="200px;"></p>
 
-                    <p>Time: <input type="text" id="timepicker"></p>
+                    <p>Time: <input type="text" name="timepicker" id="timepicker"></p>
 
                     <button>submit</button>
                 </div>

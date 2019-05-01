@@ -2,8 +2,10 @@ package com.ehayes.portfolio.Ehayes.Portfolio.Controllers;
 
 import com.ehayes.portfolio.Ehayes.Portfolio.Model.User;
 import com.ehayes.portfolio.Ehayes.Portfolio.Repository.UserRepository;
+import com.ehayes.portfolio.Ehayes.Portfolio.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +14,16 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 
+
 @Controller
 public class BarberShopController {
 
     @Autowired
-    UserRepository userRepository;
+    UserService userService;
+
+    public BarberShopController(UserService userService) {
+        this.userService = userService;
+    }
 
     @GetMapping(value = "/barbershop")
     public String Shop(){
@@ -43,7 +50,7 @@ public class BarberShopController {
             return "Register";
         }else{
 
-            userRepository.save(user);
+            userService.Register(user);
             redirectAttributes.addFlashAttribute("Success", true);
             return "redirect:/NewUser";
 
