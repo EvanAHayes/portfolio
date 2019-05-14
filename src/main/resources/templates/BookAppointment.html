@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minimum Bootstrap HTML Skeleton</title>
+    <title>Appointment</title>
 
     <link rel="stylesheet" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/BookAppointment.css">
@@ -18,9 +18,12 @@
     <script>
   $( function() {
     $( "#datepicker" ).datepicker({
+        dateFormat: 'yy-mm-dd',
+        minDate: +1,
         beforeShowDay: function(d){
             return[!(d.getDay()==1)]
         }
+
     });
   } );
       $(function(){
@@ -52,6 +55,7 @@
     </span>
   </span>
 </nav>
+
 <div id="mainDiv" style="background-color: silver;">
     <div class="style">
         <div class="row">
@@ -65,16 +69,92 @@
             <div class="col">
                 <div class="myconent-right">
                     <h1 class="mainHeading">Appointment</h1>
-                    <p>Date: <input type="text" name="datepicker" id="datepicker" width="100px;" height="200px;"></p>
+                    <form role="form" method="POST" th:action="@{/BookAppointment}" th:object="${appointment}" th:if="!${success}">
 
-                    <p>Time: <input type="text" name="timepicker" id="timepicker"></p>
+                        <div class="row" th:if="${validationErrors}">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-6">
+            <span class="text-danger align-middle">
+                <ul th:each="error : ${validationErrors}">
+                    <li th:text="${error.getDefaultMessage()}"></li>
+                </ul>
+            </span>
+                            </div>
+                        </div>
 
+                        <select th:field="*{barber}">
+                            <option value="" style="font-size: 19px;" hidden>Select a barber</option>
+                            <option th:each="barbers: ${barbers}"
+                                    th:value="${barbers}"
+                                    th:text="${barbers}"
+                                    required="required"></option>
+                            <small th:errors="*{barber}" style="color:red;"></small>
+                        </select>
+
+                    <p>Date: <input type="text"
+                                    name="datepicker"
+                                    id="datepicker"
+                                    th:value="datepicker"
+                                    class="form-control"
+                                    required="required"
+                                    width="100px;"
+                                    height="200px;"
+                                    th:field="*{date}">
+                        <small th:errors="*{date}" style="color:red;"></small>
+
+                    </p>
+
+                    <p>Time: <input type="text"
+                                    name="timepicker"
+                                    id="timepicker"
+                                    value="timepicker"
+                                    class="form-control"
+                                    required="required"
+                                    th:field="*{time}">
+                        <small th:errors="*{time}" style="color:red;"></small>
+                    </p>
                     <button>submit</button>
+
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+    <h6>Disclaimer: Same Day Appointments Must Be Made By Phone. Call Your Barber</h6>
+
+    <div id="otherhalf">
+        <div class="enhancing">
+        <h2 style="text-decoration: underline">Appointments booked</h2>
+
+            <!--Appointment list-->
+            <div class="alert alert-success" role="alert" th:if="${success}">
+                Your appointment has been Scheduled!
+
+            <div class="row" th:each="appointment : ${appointment}">
+                <div class="col">
+                    Name
+                    <h2 class="name" th:text="${appointment.getcreatedBy()}"></h2>
+
+                </div>
+                <div class="col">
+                    Date
+                    <h2 class="date" th:text="${appointment.getdate()}"></h2>
+                </div>
+                <div class="col">
+                    Time
+                    <h2 class="time" th:text="${appointment.gettime()}"></h2>
+                </div>
+            </div>
+            </div>
+
+
+        </div>
+
+    </div>
 </div>
+
+
+
 
 <!--	<div class="container">-->
 

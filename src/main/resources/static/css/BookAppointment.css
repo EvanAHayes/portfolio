@@ -27,3 +27,17 @@ h1{
 .fa-plus{
     font-size: 100px;
 }
+
+#otherhalf{
+       background-color: white;
+        height: 420px;
+        margin-top: 55px;
+}
+.enhancing{
+    margin-left: 10px;
+}
+
+h6{
+   margin-top: 10px;
+    text-align: center;
+}

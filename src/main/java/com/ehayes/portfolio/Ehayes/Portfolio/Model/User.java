@@ -29,6 +29,7 @@ public class User implements UserDetails {
 
     @NonNull
     @Column(name = "password")
+    @Size(min = 4)
     @NotEmpty(message = "Please Enter a Password")
     private String password;
 
