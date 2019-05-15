@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AppointmentService {
@@ -17,9 +18,12 @@ public class AppointmentService {
         this.appointmentRepository = appointmentRepository;
     }
 
+
+
     public List<Appointment> FindAppointments(){return appointmentRepository.findAll();}
 
     public List<BarberName> getAllBarbers(){return barber;}
+
 
     public Appointment Save(Appointment appointment){return appointmentRepository.save(appointment);}
 

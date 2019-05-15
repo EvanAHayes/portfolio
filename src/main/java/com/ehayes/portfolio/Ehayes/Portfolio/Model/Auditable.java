@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener.class)
-public class Auditable {
+public abstract class Auditable {
 
     @CreatedBy
     private String createdBy;

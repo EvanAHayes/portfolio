@@ -75,8 +75,10 @@ public class BarberShopController {
         List<BarberName> barber = appointmentService.getAllBarbers();
         mp.put("barbers", barber);
 
-//        model.addAttribute("appointments", appointmentService.FindAppointments());
+        model.addAttribute("appointments", appointmentService.FindAppointments());
         model.addAttribute("appointment", new Appointment());
+
+
         return "BookAppointment";
     }
 
@@ -91,9 +93,7 @@ public class BarberShopController {
                 return "BookAppointment";
             }
           else{
-                SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/mm/dd");
-                String Adate = dateFormat.format(appointment.getDate());
-                appointment.setDate(dateFormat.parse(Adate));
+
                 appointmentService.Save(appointment);
                 redirectAttributes.addFlashAttribute("success", true);
               return "redirect:/BookAppointment";

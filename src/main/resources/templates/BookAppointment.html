@@ -18,7 +18,7 @@
     <script>
   $( function() {
     $( "#datepicker" ).datepicker({
-        dateFormat: 'yy-mm-dd',
+        dateFormat: "yy-mm-dd",
         minDate: +1,
         beforeShowDay: function(d){
             return[!(d.getDay()==1)]
@@ -39,6 +39,7 @@
     scrollbar: true
 });
            });
+
   </script>
 </head>
 
@@ -124,27 +125,27 @@
 
     <div id="otherhalf">
         <div class="enhancing">
-        <h2 style="text-decoration: underline">Appointments booked</h2>
+        <h2 style="text-decoration: underline">Your Appointments booked</h2>
 
             <!--Appointment list-->
             <div class="alert alert-success" role="alert" th:if="${success}">
                 Your appointment has been Scheduled!
+            </div>
 
-            <div class="row" th:each="appointment : ${appointment}">
+            <div class="row" th:each="appointment : ${appointments}">
                 <div class="col">
                     Name
-                    <h2 class="name" th:text="${appointment.getcreatedBy()}"></h2>
+                    <p class="name" th:text="${appointment.getCreatedBy()}"></p>
 
                 </div>
                 <div class="col">
                     Date
-                    <h2 class="date" th:text="${appointment.getdate()}"></h2>
+                    <p class="date" th:text="${appointment.getDate()}"></p>
                 </div>
                 <div class="col">
                     Time
-                    <h2 class="time" th:text="${appointment.gettime()}"></h2>
+                    <p class="time" th:text="${appointment.getTime()}"></p>
                 </div>
-            </div>
             </div>
 
 

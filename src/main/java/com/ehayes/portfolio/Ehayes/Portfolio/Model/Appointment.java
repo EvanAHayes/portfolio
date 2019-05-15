@@ -25,8 +25,7 @@ public class Appointment extends Auditable {
 
     @NonNull
     @DateTimeFormat(pattern = "yyyy-mm-dd")
-    @Temporal(TemporalType.DATE)
-    private Date date;
+    private String date;
 
     @NonNull
     @NotEmpty(message = "Please choose a time")
@@ -41,5 +40,21 @@ public class Appointment extends Auditable {
 
     public void setBarber(String barber) {
         this.barber = barber;
+    }
+
+    public String getTime() {
+        return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 }
